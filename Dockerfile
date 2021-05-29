@@ -74,4 +74,3 @@ RUN chown -R ${USER}:${USER} ${STACK_DIR} \
 
 USER ${USER}
 CMD sudo /bootstrap.sh \
-CMD ["pm2-runtime", "/pm2-PT-stack.json"]
