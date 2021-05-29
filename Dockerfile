@@ -74,5 +74,5 @@ RUN chown -R ${USER}:${USER} ${STACK_DIR} \
 RUN service ssh start && service apache2 start
 
 USER profittrailer
-CMD pm2-start start \
+CMD pm2 start \
     && pm2 logs
