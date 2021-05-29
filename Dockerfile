@@ -71,6 +71,6 @@ WORKDIR /home/profittrailer/
 RUN chown -R ${USER}:${USER} ${STACK_DIR} \
     && chown -R ${USER}:${USER} /home/${USER} \
     && rm -rf /tmp/*
-
-USER ${USER}
-CMD sudo /bootstrap.sh \
+CMD service ssh start \
+    && service apache2 start \
+    && pm2-runtime start /pm2-PT-stack.json
