@@ -1,0 +1,24 @@
+{
+    "apps": [
+        {
+            "name": "ptm-core",
+            "cwd": "/var/opt/PTMagic",
+            "script": "PTMagic.dll",
+            "node_args": [],
+            "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "exec_interpreter": "dotnet",
+            "exec_mode": "fork",
+            "autorestart": true
+        },
+        {
+            "name": "ptm-monitor",
+            "cwd": "/var/opt/PTMagic",
+            "script": "Monitor/Monitor.dll",
+            "node_args": [],
+            "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "exec_interpreter": "dotnet",
+            "exec_mode": "fork",
+            "autorestart": true
+        }
+    ]
+}
