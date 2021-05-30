@@ -59,17 +59,18 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893 \
     && wget -qO /pm2-PT-stack.json https://raw.githubusercontent.com/pfakanator/profittrailer-stack/main/helpers/pm2-PT-stack.json \
     && wget -qO /home/${USER}/firstrun.sh \
     https://raw.githubusercontent.com/pfakanator/profittrailer-stack/main/helpers/firstrun.sh \
+    && wget -qO /home/${USER}/pm2-PT-stack.json \
+    https://raw.githubusercontent.com/pfakanator/profittrailer-stack/main/helpers/pm2-PT-stack.json \    
     && chmod +x /home/${USER}/firstrun.sh \
     && npm install pm2@latest -g \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /home/profittrailer/
+#WORKDIR /home/profittrailer/
 RUN chown -R ${USER}:${USER} ${STACK_DIR} \
     && chown -R ${USER}:${USER} /home/${USER} \
     && rm -rf /tmp/* \
+WORKDIR /home/${USER}
+CMD service apache2 start \
     && service ssh start \
-    && service apache2 start
-
-USER profittrailer
-CMD CMD ["pm2-runtime", "/pm2-PT-stack.json"]
+    && tail -F /var/log/bootstrap.log
