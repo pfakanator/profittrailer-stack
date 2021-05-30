@@ -4,7 +4,7 @@ Includes:
 * ProfitTrailerManager
 * PTMagic
 # How to run
-docker run -i -t -p 10000:10000 -p 8081-8090:8081-8090 -p 5000:5000 -p 22:22 -v LOCAL_PATH:/var/opt/ pfakanator/profittrailer-stack:latest
+docker run -i -t -p 8081:8081 -p 5000:5000 -p 22:22 -v LOCAL_PATH:/var/opt/ pfakanator/profittrailer-stack:latest
 # Setup
 Login via interactive console or ssh with credentials profittrailer/profittrailer (change your password!)
 and run ./firstrun.sh.  Follow the setup guide on the PTManager wiki complete the PTManager installation.

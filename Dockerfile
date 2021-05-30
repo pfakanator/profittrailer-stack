@@ -66,11 +66,11 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893 \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-#WORKDIR /home/profittrailer/
+WORKDIR /home/${USER}
 RUN chown -R ${USER}:${USER} ${STACK_DIR} \
     && chown -R ${USER}:${USER} /home/${USER} \
-    && rm -rf /tmp/* \
-WORKDIR /home/${USER}
+    && rm -rf /tmp/*
+
 CMD service apache2 start \
     && service ssh start \
     && tail -F /var/log/bootstrap.log
